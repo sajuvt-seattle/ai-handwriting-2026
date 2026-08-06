@@ -3,6 +3,7 @@ import numpy as np
 from PIL import Image
 import os
 import struct
+import io # NEW IMPORT: Added for robust image loading
 from collections import Counter
 
 # Define the base path where data will be stored on Streamlit Cloud
@@ -74,10 +75,14 @@ st.sidebar.write(f"Loaded training data shape: {train_images_flat.shape}")
 uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg"])
 
 if uploaded_file is not None:
-    image = Image.open(uploaded_file).convert('L') # Convert to grayscale
+    # Read the bytes from the uploaded file
+    image_bytes = uploaded_file.getvalue() # NEW: Get bytes from UploadedFile
+    # Open the image using PIL from bytes
+    image = Image.open(io.BytesIO(image_bytes)).convert('L') # MODIFIED: Open from bytes
+    
     st.image(image, caption='Uploaded Image', use_column_width=True)
     st.write("Processing image...")
-
+    
     # Preprocess the image
     image = image.resize((28, 28), Image.Resampling.LANCZOS)
     image_array = np.array(image)
