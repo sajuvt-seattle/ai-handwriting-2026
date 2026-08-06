@@ -84,10 +84,10 @@ if uploaded_file is not None:
     image_to_display = np.array(pil_image)
     st.image(image_to_display, caption='Uploaded Image', use_container_width=True)
     st.write("Processing image...")
-    
-    # Preprocess the image
-    image = image.resize((28, 28), Image.Resampling.LANCZOS)
-    image_array = np.array(image)
+
+    # Preprocess the image (using the pil_image for resize)
+    processed_pil_image = pil_image.resize((28, 28), Image.Resampling.LANCZOS)
+    image_array = np.array(processed_pil_image)
 
     # Invert colors if necessary (MNIST is white digit on black background)
     if np.mean(image_array) > 127: # Heuristic for white background
