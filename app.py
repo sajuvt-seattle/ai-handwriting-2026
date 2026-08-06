@@ -32,8 +32,8 @@ def predict_classification(train_data, train_labels, test_row, k, p_value=2):
 @st.cache_resource # Cache the data loading for performance
 def load_refined_data(train_size):
     # Adjust these paths if your files are in a subdirectory within the GitHub repo
-    refined_images_path = os.path.join(data_path, 'refined_train_images.npy')
-    refined_labels_path = os.path.join(data_path, 'refined_train_labels.npy')
+    refined_images_path = os.path.join(data_path, 'refined_train_images_10k.npy')
+    refined_labels_path = os.path.join(data_path, 'refined_train_labels_10k.npy')
 
     if not os.path.exists(refined_images_path) or not os.path.exists(refined_labels_path):
         st.error(f"Error: Training data not found. Please ensure '{os.path.basename(refined_images_path)}' and '{os.path.basename(refined_labels_path)}' are in the same directory as app.py or adjust paths.")
