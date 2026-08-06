@@ -82,7 +82,7 @@ if uploaded_file is not None:
     
     # Convert PIL Image to NumPy array for display to avoid TypeError
     image_to_display = np.array(pil_image)
-    st.image(image, caption='Uploaded Image', use_column_width=True)
+    st.image(image_to_display, caption='Uploaded Image', use_column_width=True)
     st.write("Processing image...")
     
     # Preprocess the image
