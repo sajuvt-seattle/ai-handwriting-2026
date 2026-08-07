@@ -59,7 +59,7 @@ st.title('Handwritten Digit Recognition using Custom KNN')
 st.write('Upload a handwritten digit image (0-9) and the model will predict it.')
 
 # Hyperparameters for the app
-APP_K_VALUE = 9
+APP_K_VALUE = 1
 APP_MINKOWSKI_P = 4
 APP_TRAINING_SIZE = 8000
 
