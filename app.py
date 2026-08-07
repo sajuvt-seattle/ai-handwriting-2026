@@ -60,7 +60,7 @@ st.write('Upload a handwritten digit image (0-9) and the model will predict it.'
 
 # Hyperparameters for the app
 APP_K_VALUE = 1
-APP_MINKOWSKI_P = 4
+APP_MINKOWSKI_P = 3
 APP_TRAINING_SIZE = 8000
 
 st.sidebar.header('Model Parameters')
